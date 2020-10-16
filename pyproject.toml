@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "norris"
+version = "0.1.0"
+description = ""
+authors = ["Evan Baird <mrcartoonster@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^1.1.2"
+Flask-WTF = "^0.14.3"
+requests = "^2.24.0"
+httpx = "^0.16.1"
+requests-cache = "^0.5.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.1.1"
+pytest-picked = "^0.4.4"
+pytest-emoji = "^0.2.0"
+pytest-instafail = "^0.4.2"
+pytest-cov = "^2.10.1"
+pytest-html = "^2.1.1"
+prettyprinter = "^0.18.0"
+ipython = "^7.18.1"
+pre-commit = "^2.7.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
