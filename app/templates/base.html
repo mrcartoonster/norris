@@ -21,21 +21,22 @@
         <div class="navbar-menu hidden lg:order-3 lg:block w-full lg:w-2/5 lg:text-right"><a class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700" href="#"></a><a class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700" href="#">About</a><a class="block lg:inline-block mt-4 lg:mt-0 text-blue-900 hover:text-blue-700" href="#"></a></div>
       </nav>
     </header>
-    <h1>Norriss Jokes!</h1>
-    {% if r %}
-      <p>{{ r['value'] }}</p>
-    {% else %}
-      <p>Click the button to generate a Chuck Norriss joke!</p>
-    {% endif %}
 
     <div class="flex items-center justify-center h-screen">
 
-      <div class="bg-indigo-800 text-white font-bold rounded-lg border shadow-lg p-10">
-        <form method="post">
-          {{ form.csrf_token }}
-          {{ form.submit() }}
-        </form>
-      </div>
+      {% if r %}
+        <p>{{ r['value'] }}</p>
+      {% else %}
+        <p>Click the button to generate a Chuck Norriss joke!</p>
+      {% endif %}
+    </div>
+
+    <div class="bg-indigo-800 text-black font-bold rounded-lg border shadow-lg p-10">
+      <form method="post">
+        {{ form.csrf_token }}
+        {{ form.submit() }}
+      </form>
+    </div>
 
     </div>
   </body>
