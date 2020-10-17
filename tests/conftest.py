@@ -122,6 +122,4 @@ def success_chuck(monkeypatch):
         """Calling Mock helper class."""
         return MockChuckSuccess(url)
 
-    # url = "https://api.chucknorris.io/jokes/random"
-
     monkeypatch.setattr(requests, "get", get_mock)
