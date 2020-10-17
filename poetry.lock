@@ -31,10 +31,10 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [package.extras]
+dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "sphinx", "sphinx-rtd-theme", "pre-commit"]
 docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
 tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "sphinx", "sphinx-rtd-theme", "pre-commit"]
 
 [[package]]
 name = "backcall"
@@ -139,15 +139,15 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [package.dependencies]
+click = ">=5.1"
 itsdangerous = ">=0.24"
 Jinja2 = ">=2.10.1"
-click = ">=5.1"
 Werkzeug = ">=0.15"
 
 [package.extras]
-dotenv = ["python-dotenv"]
-docs = ["sphinx", "pallets-sphinx-themes", "sphinxcontrib-log-cabinet", "sphinx-issues"]
 dev = ["pytest", "coverage", "tox", "sphinx", "pallets-sphinx-themes", "sphinxcontrib-log-cabinet", "sphinx-issues"]
+docs = ["sphinx", "pallets-sphinx-themes", "sphinxcontrib-log-cabinet", "sphinx-issues"]
+dotenv = ["python-dotenv"]
 
 [[package]]
 name = "flask-wtf"
@@ -239,27 +239,27 @@ optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-backcall = "*"
 appnope = {version = "*", markers = "sys_platform == \"darwin\""}
-pexpect = {version = ">4.3", markers = "sys_platform != \"win32\""}
-traitlets = ">=4.2"
-jedi = ">=0.10"
-pygments = "*"
+backcall = "*"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
-prompt-toolkit = ">=2.0.0,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.1.0"
-pickleshare = "*"
 decorator = "*"
+jedi = ">=0.10"
+pexpect = {version = ">4.3", markers = "sys_platform != \"win32\""}
+pickleshare = "*"
+prompt-toolkit = ">=2.0.0,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.1.0"
+pygments = "*"
+traitlets = ">=4.2"
 
 [package.extras]
-nbformat = ["nbformat"]
 all = ["Sphinx (>=1.3)", "ipykernel", "ipyparallel", "ipywidgets", "nbconvert", "nbformat", "nose (>=0.10.1)", "notebook", "numpy (>=1.14)", "pygments", "qtconsole", "requests", "testpath"]
-kernel = ["ipykernel"]
 doc = ["Sphinx (>=1.3)"]
-notebook = ["notebook", "ipywidgets"]
+kernel = ["ipykernel"]
 nbconvert = ["nbconvert"]
+nbformat = ["nbformat"]
+notebook = ["notebook", "ipywidgets"]
+parallel = ["ipyparallel"]
 qtconsole = ["qtconsole"]
 test = ["nose (>=0.10.1)", "requests", "testpath", "pygments", "nbformat", "ipykernel", "numpy (>=1.14)"]
-parallel = ["ipyparallel"]
 
 [[package]]
 name = "ipython-genutils"
@@ -384,12 +384,12 @@ optional = false
 python-versions = ">=3.6.1"
 
 [package.dependencies]
-virtualenv = ">=20.0.8"
-pyyaml = ">=5.1"
 cfgv = ">=2.0.0"
-nodeenv = ">=0.11.1"
 identify = ">=1.0.0"
+nodeenv = ">=0.11.1"
+pyyaml = ">=5.1"
 toml = "*"
+virtualenv = ">=20.0.8"
 
 [[package]]
 name = "prettyprinter"
@@ -400,8 +400,8 @@ optional = false
 python-versions = "*"
 
 [package.dependencies]
-Pygments = ">=2.2.0"
 colorful = ">=0.4.0"
+Pygments = ">=2.2.0"
 
 [[package]]
 name = "prompt-toolkit"
@@ -455,18 +455,18 @@ optional = false
 python-versions = ">=3.5"
 
 [package.dependencies]
-py = ">=1.8.2"
+atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
+attrs = ">=17.4.0"
+colorama = {version = "*", markers = "sys_platform == \"win32\""}
 iniconfig = "*"
 packaging = "*"
-colorama = {version = "*", markers = "sys_platform == \"win32\""}
-attrs = ">=17.4.0"
-toml = "*"
 pluggy = ">=0.12,<1.0"
-atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
+py = ">=1.8.2"
+toml = "*"
 
 [package.extras]
-testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 checkqa_mypy = ["mypy (0.780)"]
+testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
 name = "pytest-cov"
@@ -477,8 +477,8 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [package.dependencies]
-pytest = ">=4.6"
 coverage = ">=4.4"
+pytest = ">=4.6"
 
 [package.extras]
 testing = ["fields", "hunter", "process-tests (2.0.2)", "six", "pytest-xdist", "virtualenv"]
@@ -540,6 +540,17 @@ python-versions = ">=3.5"
 pytest = ">=3.5.0"
 
 [[package]]
+name = "python-dotenv"
+version = "0.14.0"
+description = "Add .env support to your django/flask apps in development and deployments"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "pyyaml"
 version = "5.3.1"
 description = "YAML parser and emitter for Python"
@@ -556,9 +567,9 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [package.dependencies]
-idna = ">=2.5,<3"
 certifi = ">=2017.4.17"
 chardet = ">=3.0.2,<4"
+idna = ">=2.5,<3"
 urllib3 = ">=1.21.1,<1.25.0 || >1.25.0,<1.25.1 || >1.25.1,<1.26"
 
 [package.extras]
@@ -650,10 +661,10 @@ optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 
 [package.dependencies]
+appdirs = ">=1.4.3,<2"
 distlib = ">=0.3.1,<1"
 filelock = ">=3.0.0,<4"
 six = ">=1.9.0,<2"
-appdirs = ">=1.4.3,<2"
 
 [package.extras]
 docs = ["proselint (>=0.10.2)", "sphinx (>=3)", "sphinx-argparse (>=0.2.5)", "sphinx-rtd-theme (>=0.4.3)", "towncrier (>=19.9.0rc1)"]
@@ -676,8 +687,8 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [package.extras]
-watchdog = ["watchdog"]
 dev = ["pytest", "pytest-timeout", "coverage", "tox", "sphinx", "pallets-sphinx-themes", "sphinx-issues"]
+watchdog = ["watchdog"]
 
 [[package]]
 name = "wtforms"
@@ -691,14 +702,14 @@ python-versions = "*"
 MarkupSafe = "*"
 
 [package.extras]
-locale = ["Babel (>=1.3)"]
-ipaddress = ["ipaddress"]
 email = ["email-validator"]
+ipaddress = ["ipaddress"]
+locale = ["Babel (>=1.3)"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "aabef82b258cd87fc3411fa90fea996564e7a3bd8d71553b5819d465ad0929d2"
+content-hash = "8056be405e046a0538c5a80ccdc27fdfe7f98e745109cda6384cd468f6dd5045"
 
 [metadata.files]
 appdirs = [
@@ -957,6 +968,10 @@ pytest-metadata = [
 ]
 pytest-picked = [
     {file = "pytest-picked-0.4.4.tar.gz", hash = "sha256:1c7c070d622403e109d2e8cd8054e44c117065b5ab79dc39cb5697ffd867309f"},
+]
+python-dotenv = [
+    {file = "python-dotenv-0.14.0.tar.gz", hash = "sha256:8c10c99a1b25d9a68058a1ad6f90381a62ba68230ca93966882a4dbc3bc9c33d"},
+    {file = "python_dotenv-0.14.0-py2.py3-none-any.whl", hash = "sha256:c10863aee750ad720f4f43436565e4c1698798d763b63234fb5021b6c616e423"},
 ]
 pyyaml = [
     {file = "PyYAML-5.3.1-cp27-cp27m-win32.whl", hash = "sha256:74809a57b329d6cc0fdccee6318f44b9b8649961fa73144a98735b0aaf029f1f"},

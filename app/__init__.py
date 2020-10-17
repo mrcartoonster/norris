@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 import os
 
-from flask import Flask
+import requests
+import requests_cache
+from flask import Flask, render_template
 from flask_wtf.csrf import CSRFProtect
+
+from .forms import Joke
 
 csrf_protection = CSRFProtect()
 
@@ -14,16 +18,36 @@ def create_app():
     config_type = os.getenv("CONFIG_TYPE", "config.DevelopmentConfig")
     app.config.from_object(config_type)
 
+    initialize_extensions(app)
 
-def register_blueprints(app):
-    """Blueprints and routes used in this Flask app."""
-    pass
+    requests_cache.install_cache(
+        "simple_cache",
+        backend="sqlite",
+        expire_after=5,
+    )
+
+    @app.route("/", methods=["GET", "POST"])
+    def index():
+        """Home page with joke."""
+        form = Joke()
+        r = None
+        if form.validate_on_submit():
+            url = "https://api.chucknorris.io/jokes/random"
+            r = requests.get(url).json()
+        return render_template("base.html", form=form, r=r)
+
+    @app.route("/about")
+    def about():
+        """The about page."""
+        pass
+
+    return app
 
 
 def initialize_extensions(app):
-    """Third Party Modules.
+    """Third Pary Modules.
 
-    Below are third party modules this Flask app uses.
+    Below are third party modules used in this Flask App.
 
     """
     csrf_protection.init_app(app)
