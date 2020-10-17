@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Configurations for each config with base config for whole app."""
 import os
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
@@ -28,4 +29,7 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
+    """Production Config May change this to follow Digital Ocean App Platform
+    specs."""
+
     FLASK_ENV = "production"

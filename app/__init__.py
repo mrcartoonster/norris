@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""Flask app factory.
+
+Following Pat Kennedy's template.
+
+"""
 import os
 
 import requests

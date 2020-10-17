@@ -74,11 +74,11 @@ repos:
           - --doctests
           - --extend-ignore=E402, F401 app/main/__init__.py
 # Below is opinionated lintesr and formatters. Uncomment at your own risk!
-# -   repo: https://github.com/econchick/interrogate
-#     rev: 7a0823fb29ddcd955eaf3aa91e7e93c8ca6bfbfd
-#     hooks:
-#     -   id: interrogate
-#         args: [--quiet, --fail-under=95, --verbose, --ignore-init-method, --ignore-init-module]
+-   repo: https://github.com/econchick/interrogate
+    rev: 7a0823fb29ddcd955eaf3aa91e7e93c8ca6bfbfd
+    hooks:
+    -   id: interrogate
+        args: [--fail-under=95, -v, --ignore-init-method, --ignore-init-module]
 # -   repo: https://github.com/pre-commit/mirrors-mypy
 #     rev: f687d36b12cd72d417bba07599ff27e734161768
 #     hooks:
