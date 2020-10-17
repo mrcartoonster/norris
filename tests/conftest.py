@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from dataclasses import dataclass, field
+from typing import Dict
+
 import pytest
 import requests
 
@@ -25,10 +28,43 @@ from app import create_app
 # Below are the Mocks
 
 
+def response_headers():
+    """For dataclass default factory."""
+    return {
+        "Date": "Sat, 17 Oct 2020 05:02:03 GMT",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": (
+            "__cfduid=dd60d9b05e0954f429392832eb9321a361602910922; "
+            "expires=Mon, 16-Nov-20 05:02:02 GMT; path=/; domain="
+            ".chucknorris.io; HttpOnly; SameSite=Lax"
+        ),
+        "Via": "1.1 vegur",
+        "CF-Cache-Status": "DYNAMIC",
+        "cf-request-id": "05d688bf98000027dcf19b0000000001",
+        "Expect-CT": (
+            "max-age=604800, report-uri="
+            '"https://report-uri.cloudflare'
+            '.com/cdn-cgi/beacon/expect-ct"'
+        ),
+        "Report-To": (
+            '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.'
+            'com\\/report?lkg-colo=143&lkg-time=1602910923"}]'
+            ',"group":"cf-nel","max_age":604800}'
+        ),
+        "NEL": '{"report_to":"cf-nel","max_age":604800}',
+        "Server": "cloudflare",
+        "CF-RAY": "5e3777128fac27dc-SLC",
+        "Content-Encoding": "gzip",
+    }
+
+
+@dataclass
 class MockChuckSuccess:
-    def __init__(self, url):
-        self.status_code = 200
-        self.url = url
+    status_code: int = 200
+    headers: Dict[str, str] = field(default_factory=response_headers)
+    url: str = ""
 
     def json(self):
         return {
@@ -67,6 +103,6 @@ def success_chuck(monkeypatch):
     def get_mock(url):
         return MockChuckSuccess(url)
 
-    url = "https://api.chucknorris.io/jokes/random"
+    # url = "https://api.chucknorris.io/jokes/random"
 
     monkeypatch.setattr(requests, "get", get_mock)

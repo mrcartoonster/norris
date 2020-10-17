@@ -24,6 +24,7 @@ prettyprinter = "^0.18.0"
 ipython = "^7.18.1"
 pre-commit = "^2.7.1"
 pytest-pythonpath = "^0.7.3"
+pyperclip = "^1.8.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
